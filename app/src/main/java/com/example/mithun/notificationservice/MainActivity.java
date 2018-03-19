@@ -18,11 +18,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final int REQUEST_READ_PHONE_STATE=0;
+    private static final int REQUEST_READ_SMS_PERMISSION=0;
 
     public void getPhoneStatePermission(View view) {
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED) {
 
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
+
+        }
+    }
+    public void getSMSPermission(View view) {
+        if (ContextCompat.checkSelfPermission(this,Manifest.permission.READ_SMS)!= PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_SMS}, REQUEST_READ_SMS_PERMISSION);
 
         }
     }

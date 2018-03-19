@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +7,15 @@
     tools:context="com.example.mithun.notificationservice.MainActivity">
 
     <Button
+        android:id="@+id/phoneState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="REQUEST PHONE STATE"
         android:onClick="getPhoneStatePermission"/>
-
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneState"
+        android:text="REQUEST SMS"
+        android:onClick="getSMSPermission"/>
+</RelativeLayout>
