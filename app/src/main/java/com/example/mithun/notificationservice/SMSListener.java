@@ -17,7 +17,7 @@ public class SMSListener extends BroadcastReceiver{
         if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
             for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 String messageBody = smsMessage.getMessageBody();
-                Log.v("Inside If conditiom",messageBody);
+                Log.v("Inside If condition",messageBody);
                 Toast.makeText(context,messageBody,Toast.LENGTH_SHORT).show();
             }
         }

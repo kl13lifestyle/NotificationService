@@ -13,9 +13,17 @@
         android:text="REQUEST PHONE STATE"
         android:onClick="getPhoneStatePermission"/>
     <Button
+        android:id="@+id/smsPermission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/phoneState"
         android:text="REQUEST SMS"
         android:onClick="getSMSPermission"/>
+    <Button
+        android:id="@+id/notificationPermission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/smsPermission"
+        android:text="REQUEST NOTIFICATION"
+        android:onClick="getNotificationPermission"/>
 </RelativeLayout>
