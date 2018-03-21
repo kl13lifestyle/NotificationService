@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,15 +28,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     private static final int REQUEST_READ_PHONE_STATE=100;
     private static final int REQUEST_READ_SMS_PERMISSION=101;
-    public ArrayList<appObject> applications = new ArrayList<appObject>();
+
 
 
     public void getPhoneStatePermission(View view) {
@@ -87,42 +92,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    public void getApplicationList(View view){
-        final PackageManager pm = getPackageManager();
-        Intent intent = new Intent(Intent.ACTION_MAIN, null);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> apps = pm.queryIntentActivities(intent, PackageManager.GET_META_DATA);
-
-       LayoutInflater linf=(LayoutInflater) getApplicationContext().getSystemService(
-                Context.LAYOUT_INFLATER_SERVICE);
-        linf = LayoutInflater.from(this);
-        LinearLayout rr =  findViewById(R.id.appList);
-
-
-        for (ResolveInfo ri: apps) {
-            Log.d("Installed App", "APP DETAILS:" + ri.activityInfo.applicationInfo.loadLabel(pm).toString() + " -> " +
-                    ri.activityInfo.applicationInfo.packageName);
-
-            appObject app=new appObject();
-            app.appName=ri.activityInfo.applicationInfo.loadLabel(pm).toString();
-            app.packageName=ri.activityInfo.applicationInfo.packageName;
-            app.icon=ri.activityInfo.loadIcon(pm);
-            applications.add(app);
-
-            ImageView icon = findViewById(R.id.appIcon);
-            icon.setImageDrawable(ri.activityInfo.loadIcon(pm));
-            final View v = linf.inflate(R.layout.app_list_item, null);
-
-            rr.addView(v);
-        }
-
-
-    }
-
-    public class appObject{
-        public String appName;
-        public String packageName;
-        public Drawable icon;
+    public void openAppList(View view){
+        Intent myIntent = new Intent(MainActivity.this,AppListDisplay.class);
+        startActivity(myIntent);
     }
 }

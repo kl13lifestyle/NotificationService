@@ -32,21 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/notificationPermission"
         android:text="GET APP LIST"
-        android:onClick="getApplicationList"/>
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_below="@+id/getAllAppList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:onClick="openAppList"/>
 
-        <LinearLayout
-            android:id="@+id/appList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <!-- Inflate multiple xml file here -->
-
-        </LinearLayout>
-    </ScrollView>
 </RelativeLayout>
