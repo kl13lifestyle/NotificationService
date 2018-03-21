@@ -6,10 +6,9 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/appList"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:columnWidth="100dp"
         android:minHeight="100dp"
         android:orientation="vertical"

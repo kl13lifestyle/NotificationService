@@ -30,8 +30,10 @@ public class AppListDisplay extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_list);
-        ViewGroup parent = (ViewGroup) findViewById(R.id.appList);
+        //setContentView(R.layout.app_list);
+        //ViewGroup parent = (ViewGroup) findViewById(R.id.appList);
+        setContentView(R.layout.grid_list);
+
 
 
         final PackageManager pm = getPackageManager();
@@ -50,28 +52,26 @@ public class AppListDisplay extends AppCompatActivity {
             applications.add(app);
 
 
-            rr =  findViewById(R.id.appList);
-            view=linf.from(this).inflate(R.layout.app_list_item,null);
+            /*view=LayoutInflater.from(this).inflate(R.layout.app_list_item,null);
 
-            //view= linf.inflate(R.layout.app_list_item,null);
             ImageView icon = view.findViewById(R.id.appIcon);
             icon.setBackground(ri.activityInfo.loadIcon(pm));
-            parent.addView(view);
-            /*rr.addView(v);*/
+            parent.addView(view);*/
+
+
+            GridView gridview = (GridView) findViewById(R.id.appGridList);
+            gridview.setAdapter(new ImageAdapter(this));
+
+            gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v,
+                                        int position, long id) {
+                    Toast.makeText(HelloGridView.this, "" + position,
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
-        //linf=getLayoutInflater();
 
-        /*GridView gridview = (GridView) findViewById(R.id.appGridList);
-        gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(HelloGridView.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
 
