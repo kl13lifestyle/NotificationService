@@ -52,6 +52,7 @@ public class ImageAdapter extends BaseAdapter{
             ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
             textView.setText(applications.get(position).appName);
             imageView.setBackground(applications.get(position).icon);
+
         } else {
             grid = (View) convertView;
         }
