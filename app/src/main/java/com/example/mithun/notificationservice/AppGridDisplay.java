@@ -42,7 +42,9 @@ public class AppGridDisplay extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Log.v("onItemClick","Clicked on xyz");
+
+                Log.v("onItemClick","Clicked on : " + applications.get(position).packageName);
+                Toast.makeText(AppGridDisplay.this,"clicked : " + applications.get(position).packageName, Toast.LENGTH_LONG).show();
 
             }
         });
