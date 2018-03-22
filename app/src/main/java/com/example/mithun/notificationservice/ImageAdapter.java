@@ -1,60 +1,61 @@
 package com.example.mithun.notificationservice;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class ImageAdapter extends BaseAdapter {
+import java.util.ArrayList;
+
+public class ImageAdapter extends BaseAdapter{
     private Context mContext;
+    private ArrayList<AppGridDisplay.appObject> applications;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c,ArrayList<AppGridDisplay.appObject> applications) {
         mContext = c;
+        this.applications=applications;
     }
 
+    @Override
     public int getCount() {
-        return mThumbIds.length;
+        // TODO Auto-generated method stub
+        return applications.size();
     }
 
+    @Override
     public Object getItem(int position) {
+        // TODO Auto-generated method stub
         return null;
     }
 
+    @Override
     public long getItemId(int position) {
+        // TODO Auto-generated method stub
         return 0;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        View grid;
+        LayoutInflater inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+
+
+            grid = new View(mContext);
+            grid = inflater.inflate(R.layout.grid_list_item, null);
+            TextView textView = (TextView) grid.findViewById(R.id.grid_text);
+            ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
+            textView.setText(applications.get(position).appName);
+            imageView.setBackground(applications.get(position).icon);
         } else {
-            imageView = (ImageView) convertView;
+            grid = (View) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        return grid;
     }
-
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
-    };
 }

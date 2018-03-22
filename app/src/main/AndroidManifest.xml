@@ -40,7 +40,8 @@
             </intent-filter>
         </service>
         <activity android:name=".AppListDisplay">
-
+        </activity>
+        <activity android:name=".AppGridDisplay">
         </activity>
     </application>
 

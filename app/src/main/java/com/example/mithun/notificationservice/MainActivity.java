@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAppList(View view){
-        Intent myIntent = new Intent(MainActivity.this,AppListDisplay.class);
+        Intent myIntent = new Intent(MainActivity.this,AppGridDisplay.class);
         startActivity(myIntent);
     }
 }
